@@ -15,6 +15,10 @@
 		CFE136551B897FCC0012A7EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE136531B897FCC0012A7EE /* LaunchScreen.storyboard */; };
 		CFE136601B897FCC0012A7EE /* RefreshAreaAdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1365F1B897FCC0012A7EE /* RefreshAreaAdTests.m */; };
 		CFE1366B1B897FCC0012A7EE /* RefreshAreaAdUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1366A1B897FCC0012A7EE /* RefreshAreaAdUITests.m */; };
+		CFFB3BD21B8988A900B7B518 /* KJBannerAdRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFB3BD11B8988A900B7B518 /* KJBannerAdRefreshControl.m */; };
+		CFFB3BD41B89891700B7B518 /* libISAlternativeRefreshControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFB3BD31B89891700B7B518 /* libISAlternativeRefreshControl.a */; };
+		CFFB3BD71B898CEA00B7B518 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFB3BD51B898CEA00B7B518 /* arrow.png */; };
+		CFFB3BD81B898CEA00B7B518 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFB3BD61B898CEA00B7B518 /* arrow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,11 @@
 		CFE136661B897FCC0012A7EE /* RefreshAreaAdUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefreshAreaAdUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE1366A1B897FCC0012A7EE /* RefreshAreaAdUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshAreaAdUITests.m; sourceTree = "<group>"; };
 		CFE1366C1B897FCD0012A7EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFFB3BCF1B89884B00B7B518 /* KJBannerAdRefreshControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KJBannerAdRefreshControl.h; path = KJBannerAdRefreshControl/KJBannerAdRefreshControl.h; sourceTree = "<group>"; };
+		CFFB3BD11B8988A900B7B518 /* KJBannerAdRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJBannerAdRefreshControl.m; path = KJBannerAdRefreshControl/KJBannerAdRefreshControl.m; sourceTree = "<group>"; };
+		CFFB3BD31B89891700B7B518 /* libISAlternativeRefreshControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISAlternativeRefreshControl.a; path = "../ISAlternativeRefreshControl/build/Debug-iphoneos/libISAlternativeRefreshControl.a"; sourceTree = "<group>"; };
+		CFFB3BD51B898CEA00B7B518 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		CFFB3BD61B898CEA00B7B518 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFFB3BD41B89891700B7B518 /* libISAlternativeRefreshControl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +91,7 @@
 		CFE136391B897FCC0012A7EE = {
 			isa = PBXGroup;
 			children = (
+				CFFB3BD31B89891700B7B518 /* libISAlternativeRefreshControl.a */,
 				CFE136441B897FCC0012A7EE /* RefreshAreaAd */,
 				CFE1365E1B897FCC0012A7EE /* RefreshAreaAdTests */,
 				CFE136691B897FCC0012A7EE /* RefreshAreaAdUITests */,
@@ -109,6 +120,7 @@
 				CFE136511B897FCC0012A7EE /* Assets.xcassets */,
 				CFE136531B897FCC0012A7EE /* LaunchScreen.storyboard */,
 				CFE136561B897FCC0012A7EE /* Info.plist */,
+				CFFB3BD01B89888600B7B518 /* KJBannerAdRefreshControl */,
 				CFE136451B897FCC0012A7EE /* Supporting Files */,
 			);
 			path = RefreshAreaAd;
@@ -117,6 +129,8 @@
 		CFE136451B897FCC0012A7EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CFFB3BD51B898CEA00B7B518 /* arrow.png */,
+				CFFB3BD61B898CEA00B7B518 /* arrow@2x.png */,
 				CFE136461B897FCC0012A7EE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +152,15 @@
 				CFE1366C1B897FCD0012A7EE /* Info.plist */,
 			);
 			path = RefreshAreaAdUITests;
+			sourceTree = "<group>";
+		};
+		CFFB3BD01B89888600B7B518 /* KJBannerAdRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				CFFB3BCF1B89884B00B7B518 /* KJBannerAdRefreshControl.h */,
+				CFFB3BD11B8988A900B7B518 /* KJBannerAdRefreshControl.m */,
+			);
+			name = KJBannerAdRefreshControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFE136551B897FCC0012A7EE /* LaunchScreen.storyboard in Resources */,
+				CFFB3BD81B898CEA00B7B518 /* arrow@2x.png in Resources */,
 				CFE136521B897FCC0012A7EE /* Assets.xcassets in Resources */,
 				CFE136501B897FCC0012A7EE /* Main.storyboard in Resources */,
+				CFFB3BD71B898CEA00B7B518 /* arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFE1364D1B897FCC0012A7EE /* ViewController.m in Sources */,
+				CFFB3BD21B8988A900B7B518 /* KJBannerAdRefreshControl.m in Sources */,
 				CFE1364A1B897FCC0012A7EE /* AppDelegate.m in Sources */,
 				CFE136471B897FCC0012A7EE /* main.m in Sources */,
 			);
@@ -413,7 +439,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					../ISAlternativeRefreshControl,
+				);
 				INFOPLIST_FILE = RefreshAreaAd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kinjo1506.RefreshAreaAd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,7 +455,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					../ISAlternativeRefreshControl,
+				);
 				INFOPLIST_FILE = RefreshAreaAd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kinjo1506.RefreshAreaAd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +534,7 @@
 				CFE136711B897FCD0012A7EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CFE136721B897FCD0012A7EE /* Build configuration list for PBXNativeTarget "RefreshAreaAdTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +543,7 @@
 				CFE136741B897FCD0012A7EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CFE136751B897FCD0012A7EE /* Build configuration list for PBXNativeTarget "RefreshAreaAdUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +552,7 @@
 				CFE136771B897FCD0012A7EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
