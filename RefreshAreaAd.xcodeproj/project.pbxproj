@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0B106A1B89EFAE003FB6A4 /* jump_320x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0B10691B89EFAE003FB6A4 /* jump_320x50.png */; };
+		5B0B106C1B89F07D003FB6A4 /* jump_320x50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0B106B1B89F07D003FB6A4 /* jump_320x50@2x.png */; };
+		5B0B106E1B89FF79003FB6A4 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 5B0B106D1B89FF79003FB6A4 /* Images */; };
+		5B0B10711B8A0522003FB6A4 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B10701B8A0522003FB6A4 /* CollectionViewController.m */; };
 		CFE136471B897FCC0012A7EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE136461B897FCC0012A7EE /* main.m */; };
 		CFE1364A1B897FCC0012A7EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE136491B897FCC0012A7EE /* AppDelegate.m */; };
 		CFE1364D1B897FCC0012A7EE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1364C1B897FCC0012A7EE /* ViewController.m */; };
@@ -17,8 +21,6 @@
 		CFE1366B1B897FCC0012A7EE /* RefreshAreaAdUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1366A1B897FCC0012A7EE /* RefreshAreaAdUITests.m */; };
 		CFFB3BD21B8988A900B7B518 /* KJBannerAdRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFB3BD11B8988A900B7B518 /* KJBannerAdRefreshControl.m */; };
 		CFFB3BD41B89891700B7B518 /* libISAlternativeRefreshControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFB3BD31B89891700B7B518 /* libISAlternativeRefreshControl.a */; };
-		CFFB3BD71B898CEA00B7B518 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFB3BD51B898CEA00B7B518 /* arrow.png */; };
-		CFFB3BD81B898CEA00B7B518 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFB3BD61B898CEA00B7B518 /* arrow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B0B10691B89EFAE003FB6A4 /* jump_320x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jump_320x50.png; sourceTree = "<group>"; };
+		5B0B106B1B89F07D003FB6A4 /* jump_320x50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jump_320x50@2x.png"; sourceTree = "<group>"; };
+		5B0B106D1B89FF79003FB6A4 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		5B0B106F1B8A050B003FB6A4 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		5B0B10701B8A0522003FB6A4 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		CFE136421B897FCC0012A7EE /* RefreshAreaAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefreshAreaAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE136461B897FCC0012A7EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFE136481B897FCC0012A7EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,8 +65,6 @@
 		CFFB3BCF1B89884B00B7B518 /* KJBannerAdRefreshControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KJBannerAdRefreshControl.h; path = KJBannerAdRefreshControl/KJBannerAdRefreshControl.h; sourceTree = "<group>"; };
 		CFFB3BD11B8988A900B7B518 /* KJBannerAdRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJBannerAdRefreshControl.m; path = KJBannerAdRefreshControl/KJBannerAdRefreshControl.m; sourceTree = "<group>"; };
 		CFFB3BD31B89891700B7B518 /* libISAlternativeRefreshControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISAlternativeRefreshControl.a; path = "../ISAlternativeRefreshControl/build/Debug-iphoneos/libISAlternativeRefreshControl.a"; sourceTree = "<group>"; };
-		CFFB3BD51B898CEA00B7B518 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		CFFB3BD61B898CEA00B7B518 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,11 +121,14 @@
 				CFE136491B897FCC0012A7EE /* AppDelegate.m */,
 				CFE1364B1B897FCC0012A7EE /* ViewController.h */,
 				CFE1364C1B897FCC0012A7EE /* ViewController.m */,
+				5B0B106F1B8A050B003FB6A4 /* CollectionViewController.h */,
+				5B0B10701B8A0522003FB6A4 /* CollectionViewController.m */,
 				CFE1364E1B897FCC0012A7EE /* Main.storyboard */,
 				CFE136511B897FCC0012A7EE /* Assets.xcassets */,
 				CFE136531B897FCC0012A7EE /* LaunchScreen.storyboard */,
 				CFE136561B897FCC0012A7EE /* Info.plist */,
 				CFFB3BD01B89888600B7B518 /* KJBannerAdRefreshControl */,
+				5B0B106D1B89FF79003FB6A4 /* Images */,
 				CFE136451B897FCC0012A7EE /* Supporting Files */,
 			);
 			path = RefreshAreaAd;
@@ -129,8 +137,8 @@
 		CFE136451B897FCC0012A7EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CFFB3BD51B898CEA00B7B518 /* arrow.png */,
-				CFFB3BD61B898CEA00B7B518 /* arrow@2x.png */,
+				5B0B10691B89EFAE003FB6A4 /* jump_320x50.png */,
+				5B0B106B1B89F07D003FB6A4 /* jump_320x50@2x.png */,
 				CFE136461B897FCC0012A7EE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -230,6 +238,7 @@
 				TargetAttributes = {
 					CFE136411B897FCC0012A7EE = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 2W53PDR574;
 					};
 					CFE1365A1B897FCC0012A7EE = {
 						CreatedOnToolsVersion = 7.0;
@@ -267,10 +276,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFE136551B897FCC0012A7EE /* LaunchScreen.storyboard in Resources */,
-				CFFB3BD81B898CEA00B7B518 /* arrow@2x.png in Resources */,
 				CFE136521B897FCC0012A7EE /* Assets.xcassets in Resources */,
 				CFE136501B897FCC0012A7EE /* Main.storyboard in Resources */,
-				CFFB3BD71B898CEA00B7B518 /* arrow.png in Resources */,
+				5B0B106A1B89EFAE003FB6A4 /* jump_320x50.png in Resources */,
+				5B0B106E1B89FF79003FB6A4 /* Images in Resources */,
+				5B0B106C1B89F07D003FB6A4 /* jump_320x50@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +308,7 @@
 				CFE1364D1B897FCC0012A7EE /* ViewController.m in Sources */,
 				CFFB3BD21B8988A900B7B518 /* KJBannerAdRefreshControl.m in Sources */,
 				CFE1364A1B897FCC0012A7EE /* AppDelegate.m in Sources */,
+				5B0B10711B8A0522003FB6A4 /* CollectionViewController.m in Sources */,
 				CFE136471B897FCC0012A7EE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,12 +450,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					../ISAlternativeRefreshControl,
 				);
 				INFOPLIST_FILE = RefreshAreaAd/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kinjo1506.RefreshAreaAd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -455,12 +467,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					../ISAlternativeRefreshControl,
 				);
 				INFOPLIST_FILE = RefreshAreaAd/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kinjo1506.RefreshAreaAd;
 				PRODUCT_NAME = "$(TARGET_NAME)";

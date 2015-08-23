@@ -14,13 +14,16 @@
 #pragma mark - UIView events
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+
     if ([self.superview isKindOfClass:[UIScrollView class]]) {
         [self.superview removeObserver:self forKeyPath:@"contentOffset"];
     }
 }
 
 - (void)didMoveToSuperview {
-    
+    [super didMoveToSuperview];
+
     if ([self.superview isKindOfClass:[UIScrollView class]]) {
         [self.superview addObserver:self forKeyPath:@"contentOffset" options:0 context:NULL];
     }
