@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KJBannerAdRefreshControl : UIRefreshControl
+@interface KJBannerAdRefreshControl : UIControl
 
 @end
