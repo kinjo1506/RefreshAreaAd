@@ -14,8 +14,9 @@
 @interface KJBannerAdRefreshControl()
 
 @property (strong, nonatomic) UIImageView *bannerView;
+@property (strong, nonatomic) UIImageView *refreshIconView;
 
-- (void)keepOnTop;
+- (void)layoutViews;
 
 @end
 
@@ -29,12 +30,38 @@
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
 - (void)initialize {
     self.clipsToBounds = YES;
+    self.backgroundColor = [UIColor clearColor];
+    self.frame = CGRectMake(0.0, 0.0, 320.0, 100.0);
 
-    self.bannerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jump_320x50"]];
-    self.frame = self.bannerView.frame;
+    self.bannerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Images/jump_320x50"]];
+    self.bannerView.hidden = YES; // TODO: なぜか初期位置にゴミが残るので最初は非表示にしておく
     [self addSubview:self.bannerView];
+
+    self.refreshIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Images/refresh_icon_01"]];
+    self.refreshIconView.hidden = YES; // TODO: なぜか初期位置にゴミが残るので最初は非表示にしておく
+    [self addSubview:self.refreshIconView];
+}
+
+- (void)attachToScrollView:(UIScrollView *)root {
+    [root addSubview:self];
 }
 
 #pragma mark - UIView events
@@ -63,7 +90,7 @@
                        context:(void *)context {
     if (object == self.superview && [keyPath isEqualToString:@"contentOffset"]) {
         [self.superview bringSubviewToFront:self];
-        [self keepOnTop];
+        [self layoutViews];
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -71,16 +98,51 @@
 
 #pragma mark -
 
-- (void)keepOnTop {
+- (void)layoutViews {
     NSLog(@"contentOffset:%@ self.frame:%@",
           NSStringFromCGPoint([(UIScrollView *)self.superview contentOffset]),
           NSStringFromCGRect(self.frame));
 
-    CGFloat defaultOffsetY = -64; // TODO
+    CGFloat defaultOffsetY = -64; // TODO: Navigation Bar 有無に合わせて動的に値を決める
 
     CGFloat contentOffsetY = [(UIScrollView *)self.superview contentOffset].y;
     CGFloat frameOriginY = MIN(contentOffsetY - defaultOffsetY, -self.frame.size.height);
-    self.frame = CGRectMake(self.frame.origin.x, frameOriginY, self.frame.size.width, self.frame.size.height);
+
+    CGRect rootViewFrame = self.bounds;
+
+    CGFloat pullDistance = MIN(contentOffsetY - defaultOffsetY, 0.0);
+
+    // 自身のサイズは scroll view をひっぱった分
+    rootViewFrame.size.height = pullDistance;
+    self.frame = rootViewFrame;
+
+    CGFloat horizontalCenter = self.frame.size.width  / 2.0;
+    CGFloat verticalCenter   = self.frame.size.height / 2.0;
+
+    // refresh icon をスクロールに追従させる
+    CGFloat refreshIconWidth  = self.refreshIconView.bounds.size.width;
+    CGFloat refreshIconHeight = self.refreshIconView.bounds.size.height;
+    CGFloat refreshIconX = horizontalCenter - (refreshIconWidth  / 2.0);
+    CGFloat refreshIconY = -rootViewFrame.size.height - refreshIconHeight;
+
+    CGRect refreshIconFrame = self.refreshIconView.frame;
+    refreshIconFrame.origin.x = refreshIconX;
+    refreshIconFrame.origin.y = refreshIconY;
+    self.refreshIconView.frame = refreshIconFrame;
+    self.refreshIconView.hidden = NO;
+
+    // banner view を refresh icon の上に表示 ( 全部表示されたあとは画面上部に固定 )
+    CGFloat marginBottom = 10.0f;
+    CGFloat bannerViewWidth  = self.bannerView.bounds.size.width;
+    CGFloat bannerViewHeight = self.bannerView.bounds.size.height;
+    CGFloat bannerViewX = horizontalCenter - (bannerViewWidth  / 2.0);
+    CGFloat bannerViewY = MIN(0.0, -rootViewFrame.size.height - refreshIconHeight - marginBottom - bannerViewHeight);
+    
+    CGRect bannerViewFrame = self.bannerView.frame;
+    bannerViewFrame.origin.x = bannerViewX;
+    bannerViewFrame.origin.y = bannerViewY;
+    self.bannerView.frame = bannerViewFrame;
+    self.bannerView.hidden = NO;
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface KJBannerAdRefreshControl : UIControl
 
+- (void)attachToScrollView:(UIScrollView *)root;
+
 @end

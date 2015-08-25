@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B0B106A1B89EFAE003FB6A4 /* jump_320x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0B10691B89EFAE003FB6A4 /* jump_320x50.png */; };
-		5B0B106C1B89F07D003FB6A4 /* jump_320x50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0B106B1B89F07D003FB6A4 /* jump_320x50@2x.png */; };
 		5B0B106E1B89FF79003FB6A4 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 5B0B106D1B89FF79003FB6A4 /* Images */; };
 		5B0B10711B8A0522003FB6A4 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B10701B8A0522003FB6A4 /* CollectionViewController.m */; };
 		CFE136471B897FCC0012A7EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE136461B897FCC0012A7EE /* main.m */; };
@@ -20,7 +18,6 @@
 		CFE136601B897FCC0012A7EE /* RefreshAreaAdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1365F1B897FCC0012A7EE /* RefreshAreaAdTests.m */; };
 		CFE1366B1B897FCC0012A7EE /* RefreshAreaAdUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1366A1B897FCC0012A7EE /* RefreshAreaAdUITests.m */; };
 		CFFB3BD21B8988A900B7B518 /* KJBannerAdRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFB3BD11B8988A900B7B518 /* KJBannerAdRefreshControl.m */; };
-		CFFB3BD41B89891700B7B518 /* libISAlternativeRefreshControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFB3BD31B89891700B7B518 /* libISAlternativeRefreshControl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B0B10691B89EFAE003FB6A4 /* jump_320x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jump_320x50.png; sourceTree = "<group>"; };
-		5B0B106B1B89F07D003FB6A4 /* jump_320x50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jump_320x50@2x.png"; sourceTree = "<group>"; };
 		5B0B106D1B89FF79003FB6A4 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		5B0B106F1B8A050B003FB6A4 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		5B0B10701B8A0522003FB6A4 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
@@ -64,7 +59,6 @@
 		CFE1366C1B897FCD0012A7EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFFB3BCF1B89884B00B7B518 /* KJBannerAdRefreshControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KJBannerAdRefreshControl.h; path = KJBannerAdRefreshControl/KJBannerAdRefreshControl.h; sourceTree = "<group>"; };
 		CFFB3BD11B8988A900B7B518 /* KJBannerAdRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJBannerAdRefreshControl.m; path = KJBannerAdRefreshControl/KJBannerAdRefreshControl.m; sourceTree = "<group>"; };
-		CFFB3BD31B89891700B7B518 /* libISAlternativeRefreshControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISAlternativeRefreshControl.a; path = "../ISAlternativeRefreshControl/build/Debug-iphoneos/libISAlternativeRefreshControl.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFFB3BD41B89891700B7B518 /* libISAlternativeRefreshControl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +89,6 @@
 		CFE136391B897FCC0012A7EE = {
 			isa = PBXGroup;
 			children = (
-				CFFB3BD31B89891700B7B518 /* libISAlternativeRefreshControl.a */,
 				CFE136441B897FCC0012A7EE /* RefreshAreaAd */,
 				CFE1365E1B897FCC0012A7EE /* RefreshAreaAdTests */,
 				CFE136691B897FCC0012A7EE /* RefreshAreaAdUITests */,
@@ -137,8 +129,6 @@
 		CFE136451B897FCC0012A7EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5B0B10691B89EFAE003FB6A4 /* jump_320x50.png */,
-				5B0B106B1B89F07D003FB6A4 /* jump_320x50@2x.png */,
 				CFE136461B897FCC0012A7EE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -278,9 +268,7 @@
 				CFE136551B897FCC0012A7EE /* LaunchScreen.storyboard in Resources */,
 				CFE136521B897FCC0012A7EE /* Assets.xcassets in Resources */,
 				CFE136501B897FCC0012A7EE /* Main.storyboard in Resources */,
-				5B0B106A1B89EFAE003FB6A4 /* jump_320x50.png in Resources */,
 				5B0B106E1B89FF79003FB6A4 /* Images in Resources */,
-				5B0B106C1B89F07D003FB6A4 /* jump_320x50@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

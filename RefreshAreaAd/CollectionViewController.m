@@ -13,7 +13,7 @@
 
 @interface CollectionViewController()
 
-@property (strong, nonatomic) UIControl *refreshControl;
+@property (strong, nonatomic) KJBannerAdRefreshControl *refreshControl;
 
 @end
 
@@ -23,7 +23,7 @@
     self.refreshControl = [[KJBannerAdRefreshControl alloc] init];
     self.refreshControl.tintColor = [UIColor grayColor];
     [self.refreshControl addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
-    [self.collectionView addSubview:self.refreshControl];
+    [self.refreshControl attachToScrollView:self.collectionView];
 }
 
 #pragma mark - UICollectionView DataSource
