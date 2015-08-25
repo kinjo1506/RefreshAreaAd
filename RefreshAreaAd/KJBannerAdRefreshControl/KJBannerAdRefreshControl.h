@@ -11,5 +11,10 @@
 @interface KJBannerAdRefreshControl : UIControl
 
 - (void)attachToScrollView:(UIScrollView *)root;
+- (void)beginRefreshing;
+- (void)endRefreshing;
+- (BOOL)isRefreshing;
+- (BOOL)isRefreshed;
+- (BOOL)isRefreshingOrRefreshed;
 
 @end

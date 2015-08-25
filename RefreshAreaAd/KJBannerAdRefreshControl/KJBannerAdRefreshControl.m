@@ -9,14 +9,30 @@
 #import <Foundation/Foundation.h>
 #import "KJBannerAdRefreshControl.h"
 
-#define DEFAULT_IMPL NO
+typedef NS_ENUM(NSInteger, KJRefreshingState) {
+    KJRefreshingStateDefault,
+    KJRefreshingStateRefreshing,
+    KJRefreshingStateRefreshed,
+};
+
+static const CGFloat kMarginTopOfIcon = 10.0;
 
 @interface KJBannerAdRefreshControl()
 
 @property (strong, nonatomic) UIImageView *bannerView;
 @property (strong, nonatomic) UIImageView *refreshIconView;
 
+@property (nonatomic) CGFloat threshold;
+@property (nonatomic) CGFloat contentHeight;
+@property (nonatomic) BOOL didExceedThreshold;
+@property (nonatomic) CGFloat originalIconAngle;
+@property (nonatomic) KJRefreshingState refreshingState;
+
+- (CGFloat)pullDistance;
 - (void)layoutViews;
+- (void)refreshIfExceedThreshold;
+- (void)animateRefreshing;
+- (void)endAnimateRefreshing;
 
 @end
 
@@ -58,6 +74,16 @@
     self.refreshIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Images/refresh_icon_01"]];
     self.refreshIconView.hidden = YES; // TODO: なぜか初期位置にゴミが残るので最初は非表示にしておく
     [self addSubview:self.refreshIconView];
+
+    // 更新開始のしきい値はアイコンの高さ + マージン
+    self.threshold = -(self.refreshIconView.bounds.size.height + kMarginTopOfIcon);
+    // コンテンツの高さはアイコン + マージン + バナー
+    self.contentHeight = -(self.refreshIconView.bounds.size.height + kMarginTopOfIcon + self.bannerView.bounds.size.height);
+
+    self.refreshingState = KJRefreshingStateDefault;
+
+    CGAffineTransform transform = self.refreshIconView.transform;
+    self.originalIconAngle = atan2(transform.a, transform.b);
 }
 
 - (void)attachToScrollView:(UIScrollView *)root {
@@ -67,16 +93,12 @@
 #pragma mark - UIView events
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
-    if (DEFAULT_IMPL) { [super willMoveToSuperview:newSuperview]; }
-
     if ([self.superview isKindOfClass:[UIScrollView class]]) {
         [self.superview removeObserver:self forKeyPath:@"contentOffset"];
     }
 }
 
 - (void)didMoveToSuperview {
-    if (DEFAULT_IMPL) { [super didMoveToSuperview]; }
-
     if ([self.superview isKindOfClass:[UIScrollView class]]) {
         [self.superview addObserver:self forKeyPath:@"contentOffset" options:0 context:NULL];
     }
@@ -91,6 +113,7 @@
     if (object == self.superview && [keyPath isEqualToString:@"contentOffset"]) {
         [self.superview bringSubviewToFront:self];
         [self layoutViews];
+        [self refreshIfExceedThreshold];
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -98,26 +121,22 @@
 
 #pragma mark -
 
-- (void)layoutViews {
-    NSLog(@"contentOffset:%@ self.frame:%@",
-          NSStringFromCGPoint([(UIScrollView *)self.superview contentOffset]),
-          NSStringFromCGRect(self.frame));
-
+- (CGFloat)pullDistance {
     CGFloat defaultOffsetY = -64; // TODO: Navigation Bar 有無に合わせて動的に値を決める
+    CGFloat contentOffsetY = ((UIScrollView *)self.superview).contentOffset.y;
 
-    CGFloat contentOffsetY = [(UIScrollView *)self.superview contentOffset].y;
-    CGFloat frameOriginY = MIN(contentOffsetY - defaultOffsetY, -self.frame.size.height);
+    return contentOffsetY - defaultOffsetY;
+}
 
+- (void)layoutViews {
+    CGFloat pullDistance = MIN([self pullDistance], 0.0);
     CGRect rootViewFrame = self.bounds;
-
-    CGFloat pullDistance = MIN(contentOffsetY - defaultOffsetY, 0.0);
 
     // 自身のサイズは scroll view をひっぱった分
     rootViewFrame.size.height = pullDistance;
     self.frame = rootViewFrame;
 
     CGFloat horizontalCenter = self.frame.size.width  / 2.0;
-    CGFloat verticalCenter   = self.frame.size.height / 2.0;
 
     // refresh icon をスクロールに追従させる
     CGFloat refreshIconWidth  = self.refreshIconView.bounds.size.width;
@@ -132,11 +151,10 @@
     self.refreshIconView.hidden = NO;
 
     // banner view を refresh icon の上に表示 ( 全部表示されたあとは画面上部に固定 )
-    CGFloat marginBottom = 10.0f;
     CGFloat bannerViewWidth  = self.bannerView.bounds.size.width;
     CGFloat bannerViewHeight = self.bannerView.bounds.size.height;
     CGFloat bannerViewX = horizontalCenter - (bannerViewWidth  / 2.0);
-    CGFloat bannerViewY = MIN(0.0, -rootViewFrame.size.height - refreshIconHeight - marginBottom - bannerViewHeight);
+    CGFloat bannerViewY = MIN(0.0, -rootViewFrame.size.height - refreshIconHeight - kMarginTopOfIcon - bannerViewHeight);
     
     CGRect bannerViewFrame = self.bannerView.frame;
     bannerViewFrame.origin.x = bannerViewX;
@@ -145,4 +163,111 @@
     self.bannerView.hidden = NO;
 }
 
+- (void)refreshIfExceedThreshold {
+    @synchronized(self) {
+        // すでに更新中なら何もしない
+        if ([self isRefreshingOrRefreshed]) { return; }
+    }
+
+    UIScrollView *scrollView = (UIScrollView *)self.superview;
+    if (scrollView.isTracking) {
+        self.didExceedThreshold = ([self pullDistance] < self.threshold);
+    }
+    else {
+        // しきい値を超えた位置で scrollView から指を離したら、更新開始
+        if (self.didExceedThreshold) {
+            self.didExceedThreshold = NO;
+            [self beginRefreshing];
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
+        }
+    }
+}
+
+- (void)beginRefreshing {
+    @synchronized(self) {
+        // すでに更新中なら何もしない
+        if ([self isRefreshingOrRefreshed]) { return; }
+        self.refreshingState = KJRefreshingStateRefreshing;
+    }
+
+    UIScrollView *scrollView = (UIScrollView *)self.superview;
+    UIEdgeInsets insets = scrollView.contentInset;
+    insets.top += -self.contentHeight;
+
+    // バナーが隠れている場合にスクロールして完全に表示するため、 offset を調整する
+    CGPoint offset = scrollView.contentOffset;
+    offset.y = -insets.top;
+
+    [UIView animateWithDuration:0.3f
+                     animations:^{
+                         scrollView.contentInset = insets;
+                         scrollView.contentOffset = offset;
+                     }
+                     completion:^(BOOL finished) {
+                         // ロード中アニメーション...
+                         [self animateRefreshing];
+                     }];
+}
+
+- (void)endRefreshing {
+    @synchronized(self) {
+        // 更新中でなければ何もしない
+        if (![self isRefreshingOrRefreshed]) { return; }
+        self.refreshingState = KJRefreshingStateRefreshed;
+    }
+
+    // ここではまだロード中アニメーションを止めない
+}
+
+- (void)animateRefreshing {
+    [UIView animateWithDuration:0.3f
+                          delay:0.0f
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         [self.refreshIconView setTransform:CGAffineTransformRotate(self.refreshIconView.transform, M_PI_2)];
+                     }
+                     completion:^(BOOL finished) {
+                         CGAffineTransform transform = self.refreshIconView.transform;
+                         BOOL isOriginalAngle = (fabs(atan2(transform.a, transform.b) - self.originalIconAngle) < 0.001);
+                         if (isOriginalAngle && [self isRefreshed]) {
+                             // ロード完了
+                             [self endAnimateRefreshing];
+                         }
+                         else {
+                             // まだロード中
+                             [self animateRefreshing];
+                         }
+                     }];
+}
+
+- (void)endAnimateRefreshing {
+    UIScrollView *scrollView = (UIScrollView *)self.superview;
+    UIEdgeInsets insets = scrollView.contentInset;
+    insets.top -= -self.contentHeight;
+
+    // 画像を入れ替えて、少し置いてから insets を元に戻す
+    [UIView animateWithDuration:0.3f
+                          delay:1.0f
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         scrollView.contentInset = insets;
+                     }
+                     completion:^(BOOL finished) {
+                         @synchronized(self) {
+                             self.refreshingState = KJRefreshingStateDefault;
+                         }
+                     }];
+}
+
+- (BOOL)isRefreshing {
+    return self.refreshingState == KJRefreshingStateRefreshing;
+}
+
+- (BOOL)isRefreshed {
+    return self.refreshingState == KJRefreshingStateRefreshed;
+}
+
+- (BOOL)isRefreshingOrRefreshed {
+    return [self isRefreshing] || [self isRefreshed];
+}
 @end

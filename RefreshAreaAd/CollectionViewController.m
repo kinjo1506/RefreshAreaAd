@@ -63,7 +63,7 @@
 - (void)onRefresh:(id)sender {
     dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC));
     dispatch_after(when, dispatch_get_main_queue(), ^(void){
-//        [self.refreshControl endRefreshing];
+        [self.refreshControl endRefreshing];
     });
 }
 
