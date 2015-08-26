@@ -67,8 +67,9 @@ static const CGFloat kMarginTopOfIcon = 10.0;
     self.backgroundColor = [UIColor clearColor];
     self.frame = CGRectMake(0.0, 0.0, 320.0, 100.0);
 
-    self.bannerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Images/jump_320x50"]];
+    self.bannerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Images/jump_banner_320x120"]];
     self.bannerView.hidden = YES; // TODO: なぜか初期位置にゴミが残るので最初は非表示にしておく
+    self.bannerView.userInteractionEnabled = YES;
     [self addSubview:self.bannerView];
 
     self.refreshIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Images/refresh_icon_01"]];
@@ -101,6 +102,12 @@ static const CGFloat kMarginTopOfIcon = 10.0;
 - (void)didMoveToSuperview {
     if ([self.superview isKindOfClass:[UIScrollView class]]) {
         [self.superview addObserver:self forKeyPath:@"contentOffset" options:0 context:NULL];
+    }
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if ([self.bannerView isEqual:[[touches anyObject] view]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.shonenjump.com/p/sp/comics/"]];
     }
 }
 
@@ -246,6 +253,7 @@ static const CGFloat kMarginTopOfIcon = 10.0;
     insets.top -= -self.contentHeight;
 
     // 画像を入れ替えて、少し置いてから insets を元に戻す
+    self.refreshIconView.image = [UIImage imageNamed:@"Images/refresh_icon_02"];
     [UIView animateWithDuration:0.3f
                           delay:1.0f
                         options:UIViewAnimationOptionCurveLinear
@@ -254,6 +262,7 @@ static const CGFloat kMarginTopOfIcon = 10.0;
                      }
                      completion:^(BOOL finished) {
                          @synchronized(self) {
+                             self.refreshIconView.image = [UIImage imageNamed:@"Images/refresh_icon_01"];
                              self.refreshingState = KJRefreshingStateDefault;
                          }
                      }];

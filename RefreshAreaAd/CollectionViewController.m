@@ -21,7 +21,6 @@
 
 - (void)viewDidLoad {
     self.refreshControl = [[KJBannerAdRefreshControl alloc] init];
-    self.refreshControl.tintColor = [UIColor grayColor];
     [self.refreshControl addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.refreshControl attachToScrollView:self.collectionView];
 }
