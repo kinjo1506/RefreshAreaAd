@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B0B106E1B89FF79003FB6A4 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 5B0B106D1B89FF79003FB6A4 /* Images */; };
 		5B0B10711B8A0522003FB6A4 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B10701B8A0522003FB6A4 /* CollectionViewController.m */; };
+		5B381B771B8E227000E178EA /* KJInterstitialLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B381B761B8E227000E178EA /* KJInterstitialLoadingView.m */; };
 		CF8C125D1B8DF49200A23ED2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8C125C1B8DF49200A23ED2 /* ViewController.m */; };
 		CFE136471B897FCC0012A7EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE136461B897FCC0012A7EE /* main.m */; };
 		CFE1364A1B897FCC0012A7EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE136491B897FCC0012A7EE /* AppDelegate.m */; };
@@ -41,6 +42,8 @@
 		5B0B106D1B89FF79003FB6A4 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		5B0B106F1B8A050B003FB6A4 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		5B0B10701B8A0522003FB6A4 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		5B381B751B8E227000E178EA /* KJInterstitialLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KJInterstitialLoadingView.h; path = KJInterstitialLoadingView/KJInterstitialLoadingView.h; sourceTree = "<group>"; };
+		5B381B761B8E227000E178EA /* KJInterstitialLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJInterstitialLoadingView.m; path = KJInterstitialLoadingView/KJInterstitialLoadingView.m; sourceTree = "<group>"; };
 		CF8C125B1B8DF48100A23ED2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CF8C125C1B8DF49200A23ED2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CFE136421B897FCC0012A7EE /* RefreshAreaAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefreshAreaAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B381B711B8E21B900E178EA /* KJInterstitialLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				5B381B751B8E227000E178EA /* KJInterstitialLoadingView.h */,
+				5B381B761B8E227000E178EA /* KJInterstitialLoadingView.m */,
+			);
+			name = KJInterstitialLoadingView;
+			sourceTree = "<group>";
+		};
 		CFE136391B897FCC0012A7EE = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +132,7 @@
 				CFE136531B897FCC0012A7EE /* LaunchScreen.storyboard */,
 				CFE136561B897FCC0012A7EE /* Info.plist */,
 				CFFB3BD01B89888600B7B518 /* KJBannerAdRefreshControl */,
+				5B381B711B8E21B900E178EA /* KJInterstitialLoadingView */,
 				5B0B106D1B89FF79003FB6A4 /* Images */,
 				CFE136451B897FCC0012A7EE /* Supporting Files */,
 			);
@@ -293,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B381B771B8E227000E178EA /* KJInterstitialLoadingView.m in Sources */,
 				CFFB3BD21B8988A900B7B518 /* KJBannerAdRefreshControl.m in Sources */,
 				CFE1364A1B897FCC0012A7EE /* AppDelegate.m in Sources */,
 				5B0B10711B8A0522003FB6A4 /* CollectionViewController.m in Sources */,
