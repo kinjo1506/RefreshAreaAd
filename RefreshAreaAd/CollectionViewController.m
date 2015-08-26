@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "CollectionViewController.h"
 #import "KJBannerAdRefreshControl.h"
+#import "ViewController.h"
 
 @interface CollectionViewController()
 
@@ -43,6 +44,13 @@
     imageView.image = [UIImage imageNamed:imgName];
 
     return cell;
+}
+
+#pragma mark - UICollectionView Delegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SampleViewController"];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark -

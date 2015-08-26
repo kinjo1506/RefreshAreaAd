@@ -63,5 +63,35 @@
             </objects>
             <point key="canvasLocation" x="330" y="1145"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="9cI-S9-CHH">
+            <objects>
+                <viewController storyboardIdentifier="SampleViewController" id="8kX-WP-mhy" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rYH-kj-6FL"/>
+                        <viewControllerLayoutGuide type="bottom" id="kMc-hc-oL5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v1N-W6-eYG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7pc-uR-q5t">
+                                <rect key="frame" x="140" y="48" width="320" height="504"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7pc-uR-q5t" firstAttribute="centerX" secondItem="v1N-W6-eYG" secondAttribute="centerX" id="36P-RR-Uak"/>
+                            <constraint firstItem="7pc-uR-q5t" firstAttribute="centerY" secondItem="v1N-W6-eYG" secondAttribute="centerY" id="cdL-Uq-rHh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="7pc-uR-q5t" id="voD-9S-I64"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LhQ-Ik-8dK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054" y="1145"/>
+        </scene>
     </scenes>
 </document>
