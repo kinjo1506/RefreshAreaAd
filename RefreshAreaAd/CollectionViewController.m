@@ -50,6 +50,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     ViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SampleViewController"];
+    viewController.indexPath = indexPath;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

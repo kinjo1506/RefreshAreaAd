@@ -15,9 +15,9 @@ typedef NS_ENUM(NSInteger, KJLoadingState) {
 
 @interface KJInterstitialLoadingView()
 
-@property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
-@property (strong, nonatomic) UILabel *loadingText;
-@property (strong, nonatomic) UIView *loadingLabelView;
+@property (strong, nonatomic) UIView *loadingView;
+@property (weak, nonatomic) UIImageView *interstitialView;
+@property (copy, nonatomic) NSURL *url;
 
 @property (nonatomic) KJLoadingState loadingState;
 
@@ -26,50 +26,32 @@ typedef NS_ENUM(NSInteger, KJLoadingState) {
 @implementation KJInterstitialLoadingView
 
 - (instancetype)init {
+    return [self initWithImage:nil URL:nil];
+}
+
+- (instancetype)initWithImage:(UIImage *)img URL:(NSURL *)url {
     self = [super init];
     if (self) {
-        [self initialize];
+        UINib *nib = [UINib nibWithNibName:@"KJInterstitialLoadingView" bundle:nil];
+        self.loadingView = [nib instantiateWithOwner:self options:nil][0];
+        
+        // 最初は非表示
+        self.loadingView.alpha = 0;
+        self.loadingView.hidden = YES;
+        
+        self.interstitialView = (UIImageView *)[self.loadingView viewWithTag:1];
+        self.interstitialView.image = img;
+        self.interstitialView.userInteractionEnabled = YES;
+        self.interstitialView.layer.borderWidth = 0.5f;
+        self.interstitialView.layer.cornerRadius = 5;
+        self.interstitialView.layer.masksToBounds = YES;
+        [self addSubview:self.loadingView];
+
+        self.url = url;
     }
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self initialize];
-    }
-    return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self initialize];
-    }
-    return self;
-}
-
-- (void)initialize {
-    self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-
-    self.loadingText = [[UILabel alloc] init];
-    self.loadingText.text = @"ロードしています...";
-    [self addSubview:self.loadingText];
-
-    self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    self.indicatorView.hidden = YES;
-    [self.indicatorView setCenter:CGPointMake(self.bounds.size.width, self.bounds.size.height)];
-    [self addSubview:self.indicatorView];
-
-    NSLayoutConstraint *layoutBaseline = [NSLayoutConstraint constraintWithItem:self.loadingText
-                                                                      attribute:NSLayoutAttributeBaseline
-                                                                      relatedBy:NSLayoutRelationEqual
-                                                                        toItem:self.indicatorView
-                                                                      attribute:NSLayoutAttributeBaseline
-                                                                     multiplier:1.0
-                                                                       constant:0.0];
-    [self.indicatorView addConstraint:layoutBaseline];
-}
 
 - (void)beginLoading {
     @synchronized(self) {
@@ -77,9 +59,9 @@ typedef NS_ENUM(NSInteger, KJLoadingState) {
         self.loadingState = KJLoadingStateLoading;
     }
 
-    self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.75];
-    self.indicatorView.hidden = NO;
-    [self.indicatorView startAnimating];
+    // 表示する
+    self.loadingView.alpha = 1;
+    self.loadingView.hidden = NO;
 }
 
 - (void)endLoading {
@@ -88,11 +70,13 @@ typedef NS_ENUM(NSInteger, KJLoadingState) {
         self.loadingState = KJLoadingStateDefault;
     }
 
+    // フェードアウトしたあと非表示にする
     [UIView animateWithDuration:0.3
                      animations:^{
-                         self.backgroundColor = [UIColor clearColor];
-                         self.indicatorView.hidden = YES;
-                         [self.indicatorView stopAnimating];
+                         self.loadingView.alpha = 0;
+                     }
+                     completion:^(BOOL finished) {
+                         self.loadingView.hidden = YES;
                      }];
 }
 
@@ -104,10 +88,15 @@ typedef NS_ENUM(NSInteger, KJLoadingState) {
 
 #pragma mark - UIView events
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    if ([self.bannerView isEqual:[[touches anyObject] view]]) {
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.shonenjump.com/p/sp/comics/"]];
-//    }
+- (void)didMoveToSuperview {
+    self.frame = self.superview.frame;
+    self.loadingView.frame = self.bounds;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if ([self.interstitialView isEqual:[[touches anyObject] view]]) {
+        [[UIApplication sharedApplication] openURL:self.url];
+    }
 }
 
 #pragma mark -

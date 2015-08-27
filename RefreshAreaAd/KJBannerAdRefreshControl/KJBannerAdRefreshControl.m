@@ -105,7 +105,7 @@ static const CGFloat kMarginTopOfIcon = 10.0;
     }
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([self.bannerView isEqual:[[touches anyObject] view]]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.shonenjump.com/p/sp/comics/"]];
     }

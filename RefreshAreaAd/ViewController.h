@@ -10,5 +10,6 @@
 
 @interface ViewController : UIViewController
 
+@property (copy, nonatomic) NSIndexPath *indexPath;
 
 @end

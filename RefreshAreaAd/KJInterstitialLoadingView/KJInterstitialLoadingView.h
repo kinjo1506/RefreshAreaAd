@@ -10,6 +10,7 @@
 
 @interface KJInterstitialLoadingView : UIView
 
+- (instancetype)initWithImage:(UIImage *)img URL:(NSURL *)url;
 - (void)beginLoading;
 - (void)endLoading;
 - (BOOL)isLoading;
