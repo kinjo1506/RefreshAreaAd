@@ -56,7 +56,7 @@
 
     NSArray *item = self.viewItems[self.indexPath.row];
     self.loadingView = [[KJInterstitialLoadingView alloc] initWithImage:[UIImage imageNamed:item[0]]
-                                                                    URL:[NSURL URLWithString:item[1]]];
+                                                                    URL:[NSURL URLWithString:[item[1] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     [self.view addSubview:self.loadingView];
 
     [self.loadingView beginLoading];
