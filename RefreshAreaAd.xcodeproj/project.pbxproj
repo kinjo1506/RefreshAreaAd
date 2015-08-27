@@ -17,27 +17,8 @@
 		CFE136501B897FCC0012A7EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE1364E1B897FCC0012A7EE /* Main.storyboard */; };
 		CFE136521B897FCC0012A7EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFE136511B897FCC0012A7EE /* Assets.xcassets */; };
 		CFE136551B897FCC0012A7EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE136531B897FCC0012A7EE /* LaunchScreen.storyboard */; };
-		CFE136601B897FCC0012A7EE /* RefreshAreaAdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1365F1B897FCC0012A7EE /* RefreshAreaAdTests.m */; };
-		CFE1366B1B897FCC0012A7EE /* RefreshAreaAdUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1366A1B897FCC0012A7EE /* RefreshAreaAdUITests.m */; };
 		CFFB3BD21B8988A900B7B518 /* KJBannerAdRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFB3BD11B8988A900B7B518 /* KJBannerAdRefreshControl.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CFE1365C1B897FCC0012A7EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CFE1363A1B897FCC0012A7EE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CFE136411B897FCC0012A7EE;
-			remoteInfo = RefreshAreaAd;
-		};
-		CFE136671B897FCC0012A7EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CFE1363A1B897FCC0012A7EE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CFE136411B897FCC0012A7EE;
-			remoteInfo = RefreshAreaAd;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5B0B106D1B89FF79003FB6A4 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
@@ -56,32 +37,12 @@
 		CFE136511B897FCC0012A7EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFE136541B897FCC0012A7EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFE136561B897FCC0012A7EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFE1365B1B897FCC0012A7EE /* RefreshAreaAdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefreshAreaAdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFE1365F1B897FCC0012A7EE /* RefreshAreaAdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshAreaAdTests.m; sourceTree = "<group>"; };
-		CFE136611B897FCC0012A7EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFE136661B897FCC0012A7EE /* RefreshAreaAdUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefreshAreaAdUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFE1366A1B897FCC0012A7EE /* RefreshAreaAdUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshAreaAdUITests.m; sourceTree = "<group>"; };
-		CFE1366C1B897FCD0012A7EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFFB3BCF1B89884B00B7B518 /* KJBannerAdRefreshControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KJBannerAdRefreshControl.h; path = KJBannerAdRefreshControl/KJBannerAdRefreshControl.h; sourceTree = "<group>"; };
 		CFFB3BD11B8988A900B7B518 /* KJBannerAdRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJBannerAdRefreshControl.m; path = KJBannerAdRefreshControl/KJBannerAdRefreshControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CFE1363F1B897FCC0012A7EE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFE136581B897FCC0012A7EE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFE136631B897FCC0012A7EE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -105,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				CFE136441B897FCC0012A7EE /* RefreshAreaAd */,
-				CFE1365E1B897FCC0012A7EE /* RefreshAreaAdTests */,
-				CFE136691B897FCC0012A7EE /* RefreshAreaAdUITests */,
 				CFE136431B897FCC0012A7EE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				CFE136421B897FCC0012A7EE /* RefreshAreaAd.app */,
-				CFE1365B1B897FCC0012A7EE /* RefreshAreaAdTests.xctest */,
-				CFE136661B897FCC0012A7EE /* RefreshAreaAdUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,24 +107,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CFE1365E1B897FCC0012A7EE /* RefreshAreaAdTests */ = {
-			isa = PBXGroup;
-			children = (
-				CFE1365F1B897FCC0012A7EE /* RefreshAreaAdTests.m */,
-				CFE136611B897FCC0012A7EE /* Info.plist */,
-			);
-			path = RefreshAreaAdTests;
-			sourceTree = "<group>";
-		};
-		CFE136691B897FCC0012A7EE /* RefreshAreaAdUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CFE1366A1B897FCC0012A7EE /* RefreshAreaAdUITests.m */,
-				CFE1366C1B897FCD0012A7EE /* Info.plist */,
-			);
-			path = RefreshAreaAdUITests;
-			sourceTree = "<group>";
-		};
 		CFFB3BD01B89888600B7B518 /* KJBannerAdRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,42 +136,6 @@
 			productReference = CFE136421B897FCC0012A7EE /* RefreshAreaAd.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CFE1365A1B897FCC0012A7EE /* RefreshAreaAdTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CFE136721B897FCD0012A7EE /* Build configuration list for PBXNativeTarget "RefreshAreaAdTests" */;
-			buildPhases = (
-				CFE136571B897FCC0012A7EE /* Sources */,
-				CFE136581B897FCC0012A7EE /* Frameworks */,
-				CFE136591B897FCC0012A7EE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CFE1365D1B897FCC0012A7EE /* PBXTargetDependency */,
-			);
-			name = RefreshAreaAdTests;
-			productName = RefreshAreaAdTests;
-			productReference = CFE1365B1B897FCC0012A7EE /* RefreshAreaAdTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CFE136651B897FCC0012A7EE /* RefreshAreaAdUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CFE136751B897FCD0012A7EE /* Build configuration list for PBXNativeTarget "RefreshAreaAdUITests" */;
-			buildPhases = (
-				CFE136621B897FCC0012A7EE /* Sources */,
-				CFE136631B897FCC0012A7EE /* Frameworks */,
-				CFE136641B897FCC0012A7EE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CFE136681B897FCC0012A7EE /* PBXTargetDependency */,
-			);
-			name = RefreshAreaAdUITests;
-			productName = RefreshAreaAdUITests;
-			productReference = CFE136661B897FCC0012A7EE /* RefreshAreaAdUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -245,14 +148,6 @@
 					CFE136411B897FCC0012A7EE = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 2W53PDR574;
-					};
-					CFE1365A1B897FCC0012A7EE = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = CFE136411B897FCC0012A7EE;
-					};
-					CFE136651B897FCC0012A7EE = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = CFE136411B897FCC0012A7EE;
 					};
 				};
 			};
@@ -270,8 +165,6 @@
 			projectRoot = "";
 			targets = (
 				CFE136411B897FCC0012A7EE /* RefreshAreaAd */,
-				CFE1365A1B897FCC0012A7EE /* RefreshAreaAdTests */,
-				CFE136651B897FCC0012A7EE /* RefreshAreaAdUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -286,20 +179,6 @@
 				CFC2EE5D1B8E9BE800306BB6 /* KJInterstitialLoadingView.xib in Resources */,
 				CFE136501B897FCC0012A7EE /* Main.storyboard in Resources */,
 				5B0B106E1B89FF79003FB6A4 /* Images in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFE136591B897FCC0012A7EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFE136641B897FCC0012A7EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,36 +198,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CFE136571B897FCC0012A7EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CFE136601B897FCC0012A7EE /* RefreshAreaAdTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFE136621B897FCC0012A7EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CFE1366B1B897FCC0012A7EE /* RefreshAreaAdUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CFE1365D1B897FCC0012A7EE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CFE136411B897FCC0012A7EE /* RefreshAreaAd */;
-			targetProxy = CFE1365C1B897FCC0012A7EE /* PBXContainerItemProxy */;
-		};
-		CFE136681B897FCC0012A7EE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CFE136411B897FCC0012A7EE /* RefreshAreaAd */;
-			targetProxy = CFE136671B897FCC0012A7EE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CFE1364E1B897FCC0012A7EE /* Main.storyboard */ = {
@@ -486,54 +336,6 @@
 			};
 			name = Release;
 		};
-		CFE136731B897FCD0012A7EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = RefreshAreaAdTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kinjo1506.RefreshAreaAdTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RefreshAreaAd.app/RefreshAreaAd";
-			};
-			name = Debug;
-		};
-		CFE136741B897FCD0012A7EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = RefreshAreaAdTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kinjo1506.RefreshAreaAdTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RefreshAreaAd.app/RefreshAreaAd";
-			};
-			name = Release;
-		};
-		CFE136761B897FCD0012A7EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = RefreshAreaAdUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kinjo1506.RefreshAreaAdUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = RefreshAreaAd;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		CFE136771B897FCD0012A7EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = RefreshAreaAdUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kinjo1506.RefreshAreaAdUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = RefreshAreaAd;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -551,24 +353,6 @@
 			buildConfigurations = (
 				CFE136701B897FCD0012A7EE /* Debug */,
 				CFE136711B897FCD0012A7EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CFE136721B897FCD0012A7EE /* Build configuration list for PBXNativeTarget "RefreshAreaAdTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CFE136731B897FCD0012A7EE /* Debug */,
-				CFE136741B897FCD0012A7EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CFE136751B897FCD0012A7EE /* Build configuration list for PBXNativeTarget "RefreshAreaAdUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CFE136761B897FCD0012A7EE /* Debug */,
-				CFE136771B897FCD0012A7EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
